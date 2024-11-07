@@ -15,14 +15,19 @@ public class ListeSimple {
 
     public void modifiePremier(Object element, Object nouvelleValeur) {
         Noeud courant = tete;
-        if(courant != null) {
-            while (courant.getElement() != element)
+        if (courant != null) {
+            // Recherche de l'élément
+            while (courant != null && courant.getElement() != element) {
                 courant = courant.getSuivant();
+            }
 
-            courant.setElement(nouvelleValeur);
-
+            // Si l'élément est trouvé, on le modifie
+            if (courant != null) {
+                courant.setElement(nouvelleValeur);
+            }
         }
     }
+
 
     public void modifieTous(Object element, Object nouvelleValeur) {
         Noeud courant = tete;
@@ -48,22 +53,26 @@ public class ListeSimple {
 
     public void supprimePremier(Object element) {
         if (tete != null) {
+            // Cas où l'élément à supprimer est le premier de la liste
             if (tete.getElement() == element) {
                 tete = tete.getSuivant();
                 size--;
                 return;
             }
+
             Noeud precedent = tete;
             Noeud courant = tete.getSuivant();
+            // Recherche de l'élément à supprimer
             while (courant != null && courant.getElement() != element) {
-                precedent = precedent.getSuivant();
+                precedent = courant;
                 courant = courant.getSuivant();
             }
 
-            assert courant != null;
-            precedent.setSuivant(courant.getSuivant());
-            size--;
-
+            // Si l'élément est trouvé, on le supprime
+            if (courant != null) {
+                precedent.setSuivant(courant.getSuivant());
+                size--;
+            }
         }
     }
 

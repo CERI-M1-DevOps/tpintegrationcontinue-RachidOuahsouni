@@ -255,4 +255,10 @@ public class ListeSimpleTest {
         System.out.println(listeATester);
         assertEquals(listeATester.toString(), "ListeSimple(Noeud(4), Noeud(2), Noeud(3), Noeud(1), Noeud(5))");
     }
+
+    @Test
+    void modifiePremierVide(){
+        listeATester.modifiePremier(1, 2);
+        assertEquals("ListeSimple()", listeATester.toString());
+    }
 }

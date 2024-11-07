@@ -297,7 +297,6 @@ public class ListeSimpleTest {
     }
 
     @Test
-    @Test
     void testEchangerMemeElement() {
         listeDeTest.ajouter(10);
         Noeud element1 = listeDeTest.tete;
@@ -307,16 +306,16 @@ public class ListeSimpleTest {
 
     @Test
     void testEchangerElementR2EstTete() {
-        listeDeTest.ajouter(8);
-        listeDeTest.ajouter(7);
-        listeDeTest.ajouter(6);
-        Noeud tete2 = listeDeTest.tete;
-        listeDeTest.ajouter(5);
-        listeDeTest.ajouter(4);
-        Noeud element1 = listeDeTest.tete.getSuivant();
-        assertEquals("ListeSimple(Noeud(4), Noeud(5), Noeud(6), Noeud(7), Noeud(8))", listeDeTest.toString());
-        listeDeTest.echanger(element1, tete2);
-        assertEquals("ListeSimple(Noeud(4), Noeud(6), Noeud(5), Noeud(7), Noeud(8))", listeDeTest.toString());
+        listeATester.ajout(5);
+        listeATester.ajout(4);
+        listeATester.ajout(3);
+        Noeud r2 = listeATester.tete;
+        listeATester.ajout(2);
+        listeATester.ajout(1);
+        Noeud r1 = listeATester.tete.getSuivant();
+        assertEquals("ListeSimple(Noeud(1), Noeud(2), Noeud(3), Noeud(4), Noeud(5))",listeATester.toString());
+        listeATester.echanger(r1, r2);
+        assertEquals("ListeSimple(Noeud(1), Noeud(3), Noeud(2), Noeud(4), Noeud(5))",listeATester.toString());
     }
 
 }

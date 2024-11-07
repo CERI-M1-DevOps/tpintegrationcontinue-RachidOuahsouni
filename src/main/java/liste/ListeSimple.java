@@ -53,7 +53,7 @@ public class ListeSimple {
             Noeud precedent = tete;
             Noeud courant = tete.getSuivant();
             while (courant != null && courant.getElement() != element) {
-                precedent = precedent.getSuivant();
+                precedent = courant;
                 courant = courant.getSuivant();
             }
                 precedent.setSuivant(courant.getSuivant());
@@ -61,6 +61,7 @@ public class ListeSimple {
 
         }
     }
+
 
     public void supprimeTous(int element) {
        tete = supprimeTousRecurs(element, tete);

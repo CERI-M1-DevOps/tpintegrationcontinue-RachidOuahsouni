@@ -425,32 +425,26 @@ class ListeSimpleTest {
     }
 
     @Test
-
-    void echangerLePremierEnSecondArgumentNoeudAvecUnAutre() {
-
+    void echangerLePremierNoeudAvecUnAutre() {
+        // Ajout de plusieurs éléments
         listeATester.ajout(5);
-
         listeATester.ajout(4);
-
-        Noeud r1 = listeATester.tete;
+        Noeud r2 = listeATester.tete; // Le premier nœud est 5, le second est 4
 
         listeATester.ajout(3);
-
         listeATester.ajout(2);
-
         listeATester.ajout(1);
 
-        Noeud r2 = listeATester.tete;
+        // Avant l'échange
+        assertEquals("ListeSimple(Noeud(1), Noeud(2), Noeud(3), Noeud(4), Noeud(5))", listeATester.toString());
 
-        assertEquals("ListeSimple(Noeud(1), Noeud(2), Noeud(3), Noeud(4), Noeud(5))",listeATester.toString());
+        // Échange du premier nœud (5) avec le second nœud (4)
+        listeATester.echanger(listeATester.tete, r2);
 
-        listeATester.echanger(r1, r2);
-
-        System.out.println(listeATester);
-
-        assertEquals("ListeSimple(Noeud(4), Noeud(2), Noeud(3), Noeud(1), Noeud(5))",listeATester.toString());
-
+        // Vérification du résultat de l'échange
+        assertEquals("ListeSimple(Noeud(1), Noeud(4), Noeud(3), Noeud(2), Noeud(5))", listeATester.toString());
     }
+
 
     @Test
 

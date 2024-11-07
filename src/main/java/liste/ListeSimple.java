@@ -56,8 +56,9 @@ public class ListeSimple {
                 precedent = courant;
                 courant = courant.getSuivant();
             }
-                precedent.setSuivant(courant.getSuivant());
-                size--;
+                if (cuurent != null ) {
+                    precedent.setSuivant(courant.getSuivant());
+                    size--;}
 
         }
     }

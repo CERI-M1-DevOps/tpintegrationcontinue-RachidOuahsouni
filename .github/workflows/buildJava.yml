@@ -20,4 +20,4 @@ jobs:
           distribution: 'corretto'
 
       - name: Build and run tests
-        run: mvn -B packagee était $(date)."
+        run: mvn -B package

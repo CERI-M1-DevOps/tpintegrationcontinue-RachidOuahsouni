@@ -1,18 +1,36 @@
 package liste;
 
+/**
+ * La classe ListeSimple représente une liste simplement chaînée.
+ * Elle permet d'ajouter, de modifier, de supprimer des éléments et d'effectuer diverses opérations sur la liste.
+ */
 public class ListeSimple {
+
     private long size;
     Noeud tete;
 
+    /**
+     * Retourne la taille actuelle de la liste.
+     * @return La taille de la liste.
+     */
     public long getSize() {
         return size;
     }
 
+    /**
+     * Ajoute un élément au début de la liste.
+     * @param element L'élément à ajouter.
+     */
     public void ajout(int element) {
         tete = new Noeud(element, tete);
         size++;
     }
 
+    /**
+     * Modifie la première occurrence d'un élément dans la liste.
+     * @param element L'élément à modifier.
+     * @param nouvelleValeur La nouvelle valeur à attribuer.
+     */
     public void modifiePremier(Object element, Object nouvelleValeur) {
         Noeud courant = tete;
         if (courant != null) {
@@ -28,7 +46,11 @@ public class ListeSimple {
         }
     }
 
-
+    /**
+     * Modifie toutes les occurrences d'un élément dans la liste.
+     * @param element L'élément à modifier.
+     * @param nouvelleValeur La nouvelle valeur à attribuer.
+     */
     public void modifieTous(Object element, Object nouvelleValeur) {
         Noeud courant = tete;
         while (courant != null) {
@@ -38,6 +60,10 @@ public class ListeSimple {
         }
     }
 
+    /**
+     * Retourne une représentation sous forme de chaîne de caractères de la liste.
+     * @return La chaîne de caractères représentant la liste.
+     */
     public String toString() {
         StringBuilder sb = new StringBuilder("ListeSimple(");
         Noeud n = tete;
@@ -51,6 +77,10 @@ public class ListeSimple {
         return sb.toString();
     }
 
+    /**
+     * Supprime la première occurrence d'un élément de la liste.
+     * @param element L'élément à supprimer.
+     */
     public void supprimePremier(Object element) {
         if (tete != null) {
             // Cas où l'élément à supprimer est le premier de la liste
@@ -75,6 +105,7 @@ public class ListeSimple {
             }
         }
     }
+
 
     public void supprimeTous(int element) {
         tete = supprimeTousRecurs(element, tete);

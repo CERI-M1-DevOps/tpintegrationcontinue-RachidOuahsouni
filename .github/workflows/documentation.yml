@@ -1,0 +1,32 @@
+name: Generate and Deploy Javadoc
+
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - main
+
+jobs:
+  generate-javadoc:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: '11'
+
+      - name: Build and generate Javadoc
+        run: |
+          mvn -B javadoc:javadoc  
+
+      - name: Deploy Javadoc to GitHub Pages
+        if: github.event.pull_request.merged == true
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: target/site/apidocs
+          cname: your-custom-domain.com

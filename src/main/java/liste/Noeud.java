@@ -9,6 +9,7 @@ public class Noeud {
         this.suivant = suivant;
     }
 
+
     public Object getElement() {
         return element;
     }

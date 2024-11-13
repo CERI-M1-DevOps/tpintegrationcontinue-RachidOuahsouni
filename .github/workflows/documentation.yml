@@ -1,4 +1,4 @@
-name: Generate and Deploy Documentation
+name: Generate Documentation
 
 on:
   pull_request:
@@ -9,12 +9,12 @@ permissions:
   contents: write
 
 jobs:
-  deploy-docs:
+  generate-doc:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Set up JDK 21
@@ -23,10 +23,10 @@ jobs:
           java-version: '21'
           distribution: 'corretto'
 
-      - name: Generate Java Documentation
+      - name: Generer du Javadoc
         run: mvn -B javadoc:javadoc
 
-      - name: Deploy to GitHub Pages
+      - name: Deploy to GitHub
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}

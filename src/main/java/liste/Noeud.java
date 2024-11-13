@@ -19,6 +19,7 @@ public class Noeud {
         this.element = element;
     }
 
+
     public Noeud getSuivant() {
         return suivant;
     }
